@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+body {
+  font-family: "Meiryo", "Hiragino Kaku Gothic Pro", sans-serif;
+}
+
+body.has-nise-addressbar {
+  padding-top: 24px;
+}
+
+#nise-addressbar {
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#nise-addressbar input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: none; border-left: none; border-right: none;
+}
+
+.page_container, td {
+  font-weight: normal !important;
+}
+/*
+body:not([marginwidth]) {
+  -webkit-transform: scale(2);
+  -webkit-transform-origin-y: top;
+}
+*/

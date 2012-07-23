@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset=UTF-8 />
+  <title>Chromella Girls Option</title>
+  <meta name="viewport" content="width=device-width" />
+  <script src="options.js"></script>
+  <style>
+p { margin: 0.5em 0; }
+  </style>
+ </head>
+ <body>
+  <header>
+   <h1>せってい！</h1>
+  </header>
+
+  <section>
+   <h1>基本</h1>
+   <p>
+    <label>
+     User-Agent
+     <input type=text name="user-agent" size=60 list=user-agent-list>
+    </label>
+    <datalist id=user-agent-list>
+     <optgroup label="Android">
+      <option value="Mozilla/5.0 (Linux; U; Android 2.3.6; en-us; Nexus S Build/GRK39F) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1">Nexus S</option>
+     </optgroup>
+     <optgroup label="iPhone">
+      <option value="Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3">iOS 5.0</option>
+     </optgroup>
+     <optgroup label="Windows Phone 7">
+      <option value="Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; NOKIA; Lumia 900)">Lumia 900</option>
+      <option value="Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; FujitsuToshibaMobileCommun; IS12T; KDDI)">IS12T</option>
+     </optgroup>
+    </datalist>
+   </p>
+  </section>
+
+  <section>
+   <h1>ベンリ</h1>
+   <p>
+    <label>
+     <input type=checkbox name="nise-addressbar">
+     偽アドレスバーを表示
+    </label>
+   </p>
+   <p>
+    <label>
+     <input type=checkbox name="present-uncheck">
+     プレゼントのチェックを外す
+    </label>
+   </p>
+   <p>
+    <label>
+     <input type=checkbox name="cheer-autofocus">
+     応援ページの入力欄にオートフォーカス
+    </label>
+   </p>
+   <p>
+    <label>
+     <input type=checkbox name="batch-trade">
+     まとめてトレード申請できるようにする
+    </label>
+   </p>
+   <p>
+    <label>
+     <input type=checkbox name="zoom-image">
+     アイドルの画像をクリックした時でかいのを表示する
+    </label>
+   </p>
+  </section>
+
+ </body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "name": "IMCG enhancement",
+  "version": "1.0",
+  "description": "モゲ～",
+  "icons": {
+    "16": "icons/moge16.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://sp.pf.mbga.jp/12008305/*"
+      ],
+      "js": [
+        "content-scripts/common.js",
+        "content-scripts/addressbar.js",
+        "content-scripts/batch-trade.js",
+        "content-scripts/zoom-image.js",
+        "content-scripts/title.js",
+        "content-scripts/others.js"
+      ],
+      "css": ["style.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "options_page": "options.html",
+  "page_action": {
+    "default_icon": "icons/moge16.png",
+    "default_popup": "options.html"
+  },
+  "permissions": [
+    "tabs",
+    "webRequest", "webRequestBlocking",
+    "*://*.mbga.jp/*"
+  ],
+  "manifest_version": 2
+}
