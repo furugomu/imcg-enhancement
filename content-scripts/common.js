@@ -45,6 +45,10 @@ function mbgaUrl(url) {
     encodeURIComponent(url);
 }
 
+function imcgUrl(path) {
+  return mbgaUrl('http://125.6.169.35/idolmaster/'+path);
+}
+
 // 敵中でスクリプトを実行
 function executeScript(f) {
   document.body.appendChild(E('script', '('+f.toString()+')()'));
