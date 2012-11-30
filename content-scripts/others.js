@@ -42,36 +42,6 @@ getOption('cheer-autofocus', function(enabled) {
   // 下方にあるボタンの次に置く
   document.querySelector('a.grayButton300')
       .insertAdjacentHTML('afterend', links);
-
-})();
-
-// フリートレードのマニーにカンマを付ける
-(function() {
-  if (location.href.indexOf('%2Fauction%2Fsearch_top') < 0) return;
-
-  var insertComma = function(root) {
-    if (!root) root = document;
-    var result = document.evaluate(
-      ".//text()",
-      root,
-      null,
-      XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-      null);
-    for (var i = result.snapshotLength - 1; i > 0; --i) {
-      var node = result.snapshotItem(i);
-      var text = node.nodeValue;
-      while (text.match(/\d{4}/)) {
-        text = text.replace(/(\d+)(\d{3})/, "$1,$2");
-      }
-      node.nodeValue = text;
-    }
-  }
-  insertComma(document);
-  var handler = function(e) { insertComma(e.target) }
-  window.addEventListener('AutoPagerize_DOMNodeInserted', handler, false);
-  window.addEventListener('AutoPatchWork.DOMNodeInserted', handler, false);
-  window.addEventListener('AutoPagerAfterInsert', handler, false);
-
 })();
 
 // フリートレードの希望内容をID直接指定
@@ -96,5 +66,50 @@ getOption('cheer-autofocus', function(enabled) {
     e.preventDefault();
   }, false);
   node.insertAdjacentElement('afterend', form);
-  //imcgUrl('auction/exhibit_add_check?type=1&id='+idolId);
+})();
+
+// フリートレードでボタンにフォーカス
+(function() {
+  if (location.href.indexOf('%2Fauction%2Fsearch_contract') >= 0 &&
+      location.href.indexOf('search_contract_complete') < 0)
+  {
+    document.querySelector('[type=submit]').focus();
+  }
+})();
+
+(function() {
+  if (location.href.indexOf('%2Fauction%2Fsearch_top') < 0) return;
+  var links = document.querySelectorAll('a[href*="%2Fsearch_top%2F0%2F"]');
+  for (var i = 0; i < links.length; ++i) {
+    var m = links[i].href.match(/%2Fsearch_top%2F0%2F([0-9]{7})/);
+    if (!m) break;
+    var html = '<a class="a_link" href="'+
+      imcgUrl('auction/history/'+m[1])+'">'+
+      '成立履歴</a>';
+    var a = E('a', '成立履歴', {
+      href: imcgUrl('auction/history/'+m[1]),
+      className: 'a_link',
+    })
+    links[i].insertAdjacentElement('afterend', a);
+  }
+})();
+
+// プロフィールページのURLを一意にしたい
+(function() {
+  if (location.href.indexOf('%2Fprofile%2Fshow%2F') < 0) return;
+  // %3Frnd%3D999168078$
+  var url = location.href.replace(/%3Frnd%3D\d+$/, '');
+  history.replaceState(null, null, url);
+})();
+
+// 親愛度MAXをもう一度
+(function() {
+  var m = location.href.match(/%2Fcard_list%2Fdesc%2F(\d+)/);
+  if (!m) return;
+  var buttons = document.querySelectorAll('.grayButton300');
+  if (buttons.length == 0) return;
+  var url = imcgUrl('love/flash/'+m[1]);
+  var button = E('a', {'class': 'grayButton300', href: url},
+                 '親愛度MAXメッセージをもう一度見る');
+  buttons[buttons.length - 1].insertAdjacentElement('afterend', button);
 })();

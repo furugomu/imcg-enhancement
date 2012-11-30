@@ -53,6 +53,3 @@ function imcgUrl(path) {
 function executeScript(f) {
   document.body.appendChild(E('script', '('+f.toString()+')()'));
 }
-
-// ------------------------------------------------------------
-

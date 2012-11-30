@@ -19,6 +19,7 @@
         "content-scripts/batch-trade.js",
         "content-scripts/zoom-image.js",
         "content-scripts/title.js",
+        "content-scripts/multi-column.js",
         "content-scripts/others.js"
       ],
       "css": ["style.css"],

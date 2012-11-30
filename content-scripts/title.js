@@ -15,6 +15,8 @@ case 'profile':
 case 'knights': // プロダクション
   title = document.querySelector('.productionArea').textContent;
   break;
+case 'p_reward_chance':
+  title = 'メダルチャンス'; break;
 default:
   var e = document.querySelector('.area_name');
   if (e) title = e.textContent.trim();

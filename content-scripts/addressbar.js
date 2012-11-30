@@ -6,7 +6,6 @@ getOption("nise-addressbar", function(show) {
     E('div', {id: 'nise-addressbar'},
       E('form', function() {
         this.addEventListener('submit', function(e) {
-          console.log('ハイヨー！');
           e.preventDefault();
           location.href = mbgaUrl(this.elements['url'].value);
         }, false);

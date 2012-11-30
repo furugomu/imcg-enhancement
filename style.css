@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+body.multi-column {
+  width: auto !important;
+}
+body.multi-column #pageArea,
+body.multi-column #mbga_footer_pf
+{
+  width: 320px;
+  margin: auto;
+}
+body.multi-column #accordion {
+  position: absolute;
+  background: #1d1d1d;
+}
+
 body {
   font-family: "Meiryo", "Hiragino Kaku Gothic Pro", sans-serif;
 }

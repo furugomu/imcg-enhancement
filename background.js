@@ -6,6 +6,7 @@ var defaults = {
   "cheer-autofocus": true,
   "batch-trade": false,
   "zoom-image": true,
+  "multi-column": false,
 };
 
 function getOption(name) {
